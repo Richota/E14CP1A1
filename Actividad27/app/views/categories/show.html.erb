@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+
+<h1>Categoria: <%= @category.name %></h1>
+
+
+<%= form_with(model: [@category, Product.new], local: true) do |form| %>
+  <%= form.hidden_field :category_id, value: @category.id %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Producto</th>
+      <th scope="col">Precio</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="table-active">
+      <td><%= @category.products.name %></td>
+      <td><%= @category.products.price %></td>
+    </tr>
+  </tbody>
+</table>
