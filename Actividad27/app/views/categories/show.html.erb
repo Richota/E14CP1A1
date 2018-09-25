@@ -4,8 +4,7 @@
 <h1>Categoria: <%= @category.name %></h1>
 
 
-<%= form_with(model: [@category, Product.new], local: true) do |form| %>
-  <%= form.hidden_field :category_id, value: @category.id %>
+<%= form_with(model: [ @category, @product ], local: true) do |form| %>
 
   <div class="field">
     <%= form.label :name %>
@@ -34,8 +33,8 @@
   </thead>
   <tbody>
     <tr class="table-active">
-      <td><%= @category.products.name %></td>
-      <td><%= @category.products.price %></td>
+      <td><%= @products.name %></td>
+      <td><%= @products.price %></td>
     </tr>
   </tbody>
 </table>
